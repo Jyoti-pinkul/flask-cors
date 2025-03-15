@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Aurora Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Flask Aurora Dashboard</h1>
+        
+        <h2>Total Records: <span id="total-count">0</span></h2>
+
+        <form id="filter-form">
+            <label for="filter">Filter:</label>
+            <select id="filter">
+                <option value="hour">Last Hour</option>
+                <option value="today">Today</option>
+                <option value="previous_day">Yesterday</option>
+                <option value="overall">Overall</option>
+            </select>
+            <button type="submit">Apply</button>
+        </form>
+
+        <h3>Filtered Records Chart</h3>
+        <img id="chart" src="/chart?filter=overall" alt="Filtered Chart" style="width: 80%; max-width: 600px;">
+
+        <h3>Records:</h3>
+        <ul id="record-list"></ul>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
